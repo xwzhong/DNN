@@ -19,7 +19,7 @@ def nnff(nn,x,y):
     nn.values[0] = x
     for i in range(1,layers):
         nn.values[i] = sigmod(np.dot(nn.values[i-1],nn.W[i-1])+nn.B[i-1])
-    # nn.error：输出层与输入层差值
+    # nn.error：输出层中实际值与预测值的差值
     nn.error = y - nn.values[layers-1]
     nn.loss = 1.0/2.0*(nn.error**2).sum()/numbers
     return nn
